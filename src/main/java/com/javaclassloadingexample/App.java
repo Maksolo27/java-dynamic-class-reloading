@@ -1,5 +1,7 @@
 package com.javaclassloadingexample;
 
+import static java.lang.Thread.*;
+
 public class App {
     public static void main( String[] args ) {
     	for (;;) {
@@ -7,7 +9,7 @@ public class App {
     		try {
     			Object obj = myStaticClass.newInstance();
     			System.out.println (obj.toString ());
-    			Thread.sleep(2000);
+    			sleep(2000);
 
     		} catch (Exception e1) {
     			e1.printStackTrace();
