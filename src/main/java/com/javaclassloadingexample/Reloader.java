@@ -6,14 +6,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Reloader extends ClassLoader {
-/*    public static void main(String[] args) throws Exception {
-        do {
-            Object foo = new Reloader().loadClass("MyFoo").newInstance();
-            System.out.println("LOADED: " + foo); // Overload MyFoo#toString() for effect
-            System.out.println("Press <ENTER> when MyFoo.class has changed");
-            System.in.read();
-        } while (true);
-    }*/
 
     @Override
     public Class<?> loadClass(String s) {
@@ -36,7 +28,6 @@ public class Reloader extends ClassLoader {
 
     private byte[] loadClassData(String className) throws IOException {
     	String str = "target/classes/" + className.replaceAll("\\.", "/") + ".class";
-
         File f = new File(str);
         int size = (int) f.length();
         byte buff[] = new byte[size];
